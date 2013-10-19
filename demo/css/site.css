@@ -1,0 +1,22 @@
+/* any other css */
+ span.main-table-arrow {
+    background:transparent url(https://dl.dropboxusercontent.com/u/47603304/arrows.png) no-repeat scroll 0px -16px;
+    width:16px;
+    height:16px;
+    display:inline-block;
+}
+span.main-table-arrow.up { background-position:0px 0px;}
+table {
+    border-spacing:0;
+}
+table tr[data-mt-collapsible] {
+	cursor:pointer;
+}
+TH {
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+Td {
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
+}

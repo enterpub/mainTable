@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>My test page</title>
+        <link rel="stylesheet" type="text/css" href="css/site.css">
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery-ui-1.10.3.js"></script>
+        <script src="../src/jquery.mainTable.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#table1, div').mainTable({
+                    scrollableBodyHeight: 350,
+                    scrollableBodyWidth: 1200,
+                    quantityOfLeftFixedColumns: 2,
+                    //allowResizeColumns: false,
+                    freezeHeader: true,
+                    onRowsExpanded: function(args) {
+                        $(this).find("> td:eq(0) > span.main-table-arrow").eq(0).removeClass("up");
+                    },
+                    onRowsCollapsed: function(args) {
+                        $(this).find("> td:eq(0) > span.main-table-arrow").eq(0).addClass("up");
+                    }
+                });
+    
+                // $('#table2').mainTable({
+                //     scrollableBodyHeight: 150,
+                //     scrollableBodyWidth: 1100,
+                //     quantityOfLeftFixedColumns: 3,
+                //     freezeHeader: true
+                // });
+
+                $('#collapse').on('click', function() {
+                    $('table').mainTable('collapseAll');
+                });
+
+                $('#expand').on('click', function() {
+                    $('table').mainTable('expandAll');
+                });
+            });
+        </script>
+    </head>
+    <body>
+<button id="collapse">Collapse All</button>
+<button id="expand">Expand All</button>
+        <!-- <div >
+            <thead>
+                <tr>
+                    <th>th 1</th>
+                </tr>
+                <tr>
+                    <td>col 1</td>
+                </tr>
+                <tr>
+                    <td>col23</td>
+                </tr>
+            </thead>
+                <tr>
+                    <td>col 1</td>
+                </tr>
+            <tbody>
+
+            </tbody>
+        </div> -->
+
+        <table id="table1" style="border: 7px solid red;">
+            <thead>
+                <tr>
+                    <th colspan="6" style="padding-top:30px">Info</th>
+                </tr>
+                <tr>
+                    <th colspan="2">Full name</th>
+                    <th colspan="2">Region</th>
+                    <th colspan="2">Favorites</th>
+                </tr>
+                <tr style="background: #eee8aa">
+                    <th style="width: 200px;">First namef kjlgs dfkljshdlkj hkljhd klfjdh kljf </th>
+                    <th style="width: 100px;">Last name and a very big text slkdfjg hslkdfj sdfgs dfg sdfg sdf</th>
+                    <th style="background: #da70d6;width: 250px;">Country</th>
+                    <th style="background: #da70d6;width: 450px;">City</th>
+                    <th style="background: #da70d6">where to hang out</th>
+                    <th style="background: #da70d6;width: 110px;">What films to watch</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-mt-collapsible="1" data-mt-collapsible-rows="5" data-mt-collapsible-rows-skip="1">
+                    <td>
+                        Column 1
+                        <div>dfg sdfg sdfg </div>
+                    </td>
+                    <td>Column 2</td>
+                    <td colspan="4">long long long dfgdf lskdjfhg wrt wrt wrtColumn 2</td>
+                </tr>
+                <tr style="background: #ffe4c4">
+                    <td>Column 1</td>
+                    <td>Column 2</td>
+                    <td style="font-size:x-large; font-style: italic; font-family: sans-serif; background: #dcdcdc">Column 3</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">Column 4</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">Column 5</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">Column 6</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Column 1</td>
+                    <td colspan="2">Column 2</td>
+                    <td colspan="2">Column 3</td>
+                </tr>
+                <tr>
+                    <td>column 11 and many text fdg sdfg sfd d gdf</td>
+                    <td>Column 2 grow fast and make some leaves to hat</td>
+                    <td>Column 3</td>
+                    <td>Column 4</td>
+                    <td>Column 5</td>
+                    <td>Column 6</td>
+                </tr>
+                <tr>
+                    <td>Column 1</td>
+                    <td>Column 2</td>
+                    <td>Column 4</td>
+                    <td>Column 4</td>
+                    <td>Column 5</td>
+                    <td>Column 6</td>
+                </tr>
+                <tr>
+                    <td>Column 1</td>
+                    <td>Column 2</td>
+                    <td>Column 3</td>
+                    <td colspan="3">Column 4</td>
+                </tr>
+                <tr data-mt-collapsible="1" data-mt-collapsible-rows="7" data-mt-collapsed="0">
+                    <td>Column 1</td>
+                    <td>Column 2</td>
+                    <td>Column 3</td>
+                    <td>Column 4</td>
+                    <td>Column 5</td>
+                    <td>Column 6</td>
+                </tr>
+                <tr data-mt-collapsible="1" data-mt-collapsible-rows="3" data-mt-collapsed="0">
+                    <td>
+                        Column 1
+                    </td>
+                    <td>Column 2</td>
+                    <td>Column 3</td>
+                    <td>Column 4</td>
+                    <td>Column 5</td>
+                    <td>Column 6</td>
+                </tr>
+                <tr style="background: #ffe4c4">
+                    <td>AAA A</td>
+                    <td rowspan="3">Rowspan</td>
+                    <td style="font-size: large; font-style: italic; font-family: sans-serif; background: #dcdcdc">many years ago there was a man who liked dogs</td>
+                    <td style="color: #008000; border-left: 5px solid #EB8; border-right: 4px solid #B74; border-top: 3px solid #EB8; padding: 2px 3px 3px 4px">The moon is shining.</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">Some long long text. Some long long text. Some long long text. Some long long text. Some long long text. Some long long text</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">Column 6</td>
+                </tr>
+                <tr style="background: #ffe4c4">
+                    <td>BBB</td>
+                    <td style="font-size: large; font-style: italic; font-family: sans-serif; background: #dcdcdc">Column 3</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">I laskd lfdfjhhklajsdhfklas hklasjdfh  klasjdfh klasjdh klasjdf lkasjdh klasjdh kljhklfjdh kljsdhfklsjhdf kld </td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">ffffffff gggggggg fr ewr  3453 45 ef g df g dfg dfg</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">sfgh sfgh sfgh sfghghgfdhdfgh fdgh dsfghdfghdfg hdfg hdfghdfgh dfgh dfgh fdg</td>
+                </tr>
+                <tr style="background: #ffe4c4">
+                    <td colspan="2">CCC</td>
+                    <td style="font-size: large; font-style: italic; font-family: sans-serif; background: #dcdcdc">Column 3</td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px"> oholl guilgui ldfthsrtg zdfg df </td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">sdf gsdf gsdafgfdghdfh fdg dfsgh dfg </td>
+                    <td style="color: #008000; border-left: 1px solid #EB8; border-right: 1px solid #B74; border-top: 1px solid #EB8; padding: 2px 3px 3px 4px">jfdjgh g dfjdfgh hjdhf fdkjfhd  jdd hd h dhdhd ckjldsg hsldakfhg lkadjfg hkladjfhl kadsjgalkdjfh lakjdfhg a;ksdj hdk;fjg k;asjdghka;sdfh ;lasdkhggh</td>
+                </tr>
+                <tr>
+                    <td>Column 1</td>
+                    <td>Column 2 here a test</td>
+                    <td>Column 3</td>
+                    <td>Column 4</td>
+                    <td>Column 5</td>
+                    <td>Column 6</td>
+                </tr>
+                <tr>
+                    <td>Column 1</td>
+                    <td>Column 2 under</td>
+                    <td>Column 3</td>
+                    <td>Column 4</td>
+                    <td>Column 5</td>
+                    <td>Column 6</td>
+                </tr>
+                <tr>
+                    <td>Column 1</td>
+                    <td>Column 2</td>
+                    <td>Column 3</td>
+                    <td>Column 4</td>
+                    <td>Column 5</td>
+                    <td>Column 6</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 
+        <table id="table2" style="width:1200px;">
+            <thead>
+                <tr>
+                    <th colspan="2">th 1</th>
+                    <th>th 2</th>
+                    <th>th 3</th>
+                </tr>
+                <tr>
+                    <th>th 1</th>
+                    <th>th 2</th>
+                    <th>th 3</th>
+                    <th>th 4</th>
+                </tr>
+                <tr>
+                    <th style="width: 400px">th 1</th>
+                    <th style="width: 50px">th 2</th>
+                    <th style="width: 50px">th 3</th>
+                    <th>th 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>td 1</td>
+                    <td>td 2</td>
+                    <td style="background: #dcacdc">td 3</td>
+                    <td>td 4</td>
+                </tr>
+                <tr data-mt-collapsible="1" data-mt-collapsible-rows="3">
+                    <td>
+                        Column 1
+                    </td>
+                    <td>td 2</td>
+                    <td>td 3</td>
+                    <td>td 4</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">td 1</td>
+                    <td rowspan="2">td 2</td>
+                    <td rowspan="3">td 3</td>
+                    <td>td 4</td>
+                </tr>
+                <tr>
+                    <td>td 1</td>
+                </tr>
+                <tr>
+                    <td>td 1</td>
+                    <td>td 2</td>
+                </tr>
+                <tr>
+                    <td style="font-size: large; font-style: italic; font-family: sans-serif; background: #dcdcdc">td 1</td>
+                    <td>td 2</td>
+                    <td>td 3</td>
+                    <td>td 4</td>
+                </tr>
+                <tr>
+                    <td colspan="3">td 1</td>
+                    <td>td 2</td>
+                </tr>
+                <tr>
+                    <td>td 1</td>
+                    <td colspan="2" rowspan="2">td 2</td>
+                    <td>td 3</td>
+                </tr>
+                <tr>
+                    <td>td 1</td>
+                    <td>td 2</td>
+                </tr>
+                <tr>
+                    <td>td 1</td>
+                    <td>td 2</td>
+                    <td>td 3</td>
+                    <td>td 4</td>
+                </tr>
+                <tr>
+                    <td>td 1</td>
+                    <td>td 2</td>
+                    <td>td 3</td>
+                    <td>td 4</td>
+                </tr>
+            </tbody>
+        </table> -->
+    </body>
+</html>
