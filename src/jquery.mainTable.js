@@ -5,7 +5,7 @@ Restrictions:
 */
 
 /*
-version 1.4.24
+version 1.4.25
 Plugin is designed by Vitaliy Kryvonos. If you have any questions you may reach me at https://github.com/enterpub/mainTable
 */
 
@@ -264,13 +264,14 @@ if ( typeof Object.create !== 'function' ) {
         },
 
         getWidthOfLeftFixedTable: function() {
-            var tableWidth = 0;
+            var quantity = this.options.quantityOfLeftFixedColumns;
+            var borderSpacing = parseInt(this.originalTable.css('border-spacing'), 10) * (quantity + 1);
+            var tableWidth = parseInt(this.originalTable.css('border-left-width'), 10) + borderSpacing;
+            
             var columns = this.originalTable.find('> thead > tr:last th');
-            for (var i = 0; i < this.options.quantityOfLeftFixedColumns; i++) {
+            for (var i = 0; i < quantity; i++) {
                 tableWidth = tableWidth + columns.eq(i).outerWidth();
             };
-
-            tableWidth = tableWidth + parseInt(this.originalTable.css('border-left-width'), 10);
 
             return tableWidth;
         },
